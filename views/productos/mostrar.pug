@@ -1,0 +1,29 @@
+extends ../layout/app
+
+block styles
+    link(rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css")
+
+block contenido 
+
+    div(class="py-5")
+        h1(class="text-4xl my-10 font-extrabold text-center")= producto.nombre
+
+        div
+            a(href="#" class="font-bold text-gray-600 text-sm") Categoria: 
+                span(class="font-normal")= producto.categoria.nombre
+        
+        div(class="mt-5 md:flex md:gap-4")
+            div(class="md:w-2/3 bg-white shadow rounded-lg")
+                img(src=`/uploads/${producto.imagen}`, alt=`Imagen del producto ${producto.nombre}` class="mx-auto mt-5 mb-8 rounded-md")
+                div(class="px-5 py-10 space-y-5")
+                    p= producto.descripcion
+                    h2(class='text-2xl leading-4 font-bold text-gray-900') Información del Producto
+                    div(class='grid grid-cols-1 md:grid-cols-2')
+            
+                        p(class="text-gray-600 font-bold text-xs") Precio 
+                            span(class="text-gray-800 block text-lg")= producto.precio.nombre
+            
+            div(class="md:w-1/3")
+                h3(class="text-center py-10 leading-6 text-2xl font-bold text-gray-900")
+
+                input(class="w-full bg-marron-oscuro hover:bg-naranja-marron text-white font-bold py-3 cursor-pointer" type="submit" value="Agregar al carrito")
